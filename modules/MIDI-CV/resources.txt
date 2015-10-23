@@ -1,0 +1,2 @@
+Using the MCP: https://learn.adafruit.com/mcp4725-12-bit-dac-tutorial/wiring
+Another example: http://forum.arduino.cc/index.php?topic=134631.0

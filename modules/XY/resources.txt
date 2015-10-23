@@ -1,0 +1,3 @@
+PS2 to XYZ: https://github.com/adafruit/Adafruit-PS2-Trackpad/blob/master/examples/trackpad/trackpad.pde
+midi out: https://www.arduino.cc/en/Tutorial/Midi
+more: http://forum.arduino.cc/index.php?topic=8285.0
