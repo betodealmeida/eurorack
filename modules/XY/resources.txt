@@ -1,3 +1,5 @@
 PS2 to XYZ: https://github.com/adafruit/Adafruit-PS2-Trackpad/blob/master/examples/trackpad/trackpad.pde
 midi out: https://www.arduino.cc/en/Tutorial/Midi
 more: http://forum.arduino.cc/index.php?topic=8285.0
+
+https://engineerzero.wordpress.com/2013/05/07/attiny-4585-pin-conventions-for-arduino-ide-sketches/

@@ -12,8 +12,8 @@
 #define CC_21 0x15
 #define CC_22 0x16
 #define CC_23 0x17
-#define BUTTON_0 0x50
-#define BUTTON_1 0x51
+#define LEFT_BUTTON 0x50
+#define RIGHT_BUTTON 0x51
 
 Adafruit_PS2_Trackpad ps2(PS2_CLK, PS2_DATA);
 SoftwareSerial midi(MIDI_RX, MIDI_TX);
@@ -30,7 +30,7 @@ void setup() {
     midi.begin(31250);
 }
 
-boolean button_0 = false, button_1 = false;
+boolean left_button = false, right_button = false;
 
 void loop() {
     if (!ps2.readData()) return;
@@ -40,17 +40,17 @@ void loop() {
         sendMidi(CHANNEL_0, CC_22, (int) ps2.y/2);
         sendMidi(CHANNEL_0, CC_23, (int) ps2.z/2);
     } else if (ps2.left) {
-        if (button_0) 
-            sendMidi(CHANNEL_0, BUTTON_0, 0);
+        if (left_button) 
+            sendMidi(CHANNEL_0, LEFT_BUTTON, 0);
         else
-            sendMidi(CHANNEL_0, BUTTON_0, 127);
-        button_0 = !button_0;
+            sendMidi(CHANNEL_0, LEFT_BUTTON, 127);
+        left_button = !left_button;
     } else if (ps2.right) {
-        if (button_1) 
-            sendMidi(CHANNEL_0, BUTTON_1, 0);
+        if (right_button) 
+            sendMidi(CHANNEL_0, RIGHT_BUTTON, 0);
         else
-            sendMidi(CHANNEL_0, BUTTON_1, 127);
-        button_1 = !button_1;
+            sendMidi(CHANNEL_0, RIGHT_BUTTON, 127);
+        right_button = !right_button;
     }
 
     Serial.println();
