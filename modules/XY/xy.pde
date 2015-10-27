@@ -1,11 +1,10 @@
 #include <Adafruit_PS2_Trackpad.h>
 #include <SoftwareSerial.h>
 
-#define PS2_DATA 2
-#define PS2_CLK 3
-
-#define MIDI_RX 10
-#define MIDI_TX 11
+#define PS2_DATA 3  # pin 2
+#define PS2_CLK 4   # pin 3
+#define MIDI_RX 0   # pin 5
+#define MIDI_TX 1   # pin 6
 
 // http://www.ccarh.org/courses/253/handout/controllers/
 #define CHANNEL_0 0x90
@@ -36,9 +35,9 @@ void loop() {
     if (!ps2.readData()) return;
 
     if (ps2.finger) {
-        sendMidi(CHANNEL_0, CC_21, (int) ps2.x/2);
-        sendMidi(CHANNEL_0, CC_22, (int) ps2.y/2);
-        sendMidi(CHANNEL_0, CC_23, (int) ps2.z/2);
+        sendMidi(CHANNEL_0, CC_21, ps2.x/256);
+        sendMidi(CHANNEL_0, CC_22, ps2.y/256);
+        sendMidi(CHANNEL_0, CC_23, ps2.z/256);
     } else if (ps2.left) {
         if (left_button) 
             sendMidi(CHANNEL_0, LEFT_BUTTON, 0);
